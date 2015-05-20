@@ -1,15 +1,16 @@
 {
-  "name": "electron-boilerplate",
-  "productName": "Electron Boilerplate",
-  "identifier": "com.example.electron-boilerplate",
-  "description": "Starter for your Electron application. Out of the box ready for serious stuff.",
+  "name": "iitm-netaccess",
+  "productName": "IITM Netaccess",
+  "identifier": "me.shahidh.iitm-netaccess",
+  "description": "Automatic authentication through IIT Madras Netaccess.",
   "version": "0.1.0",
-  "author": "Mr Gumby <gumby@sillywalks.com>",
+  "author": "Shahidh K Muhammed <muhammedshahid.k@gmail.com>",
   "main": "main.js",
   "config": {
     "target": "development"
   },
   "dependencies": {
-    "fs-jetpack": "^0.6.4"
+    "fs-jetpack": "^0.6.4",
+    "request": "^2.55.0"
   }
 }

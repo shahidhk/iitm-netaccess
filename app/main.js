@@ -9,8 +9,8 @@ var mainWindow;
 
 // Preserver of the window size and position between app launches.
 var mainWindowState = windowStateKeeper('main', {
-    width: 1000,
-    height: 600
+    width: 420,
+    height: 300
 });
 
 // You have data from config/env_XXX.json file loaded here in case you need it.
@@ -21,8 +21,8 @@ app.on('ready', function () {
     mainWindow = new BrowserWindow({
         x: mainWindowState.x,
         y: mainWindowState.y,
-        width: mainWindowState.width,
-        height: mainWindowState.height
+        width:320,
+        height: 400
     });
 
     if (mainWindowState.isMaximized) {

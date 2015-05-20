@@ -7,4 +7,4 @@ Comment={{description}}
 Exec=/opt/{{name}}/electron
 Icon=/opt/{{name}}/icon.png
 Terminal=false
-Categories=Application;
+Categories=Application, Internet;

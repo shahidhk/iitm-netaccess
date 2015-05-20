@@ -1,6 +1,6 @@
-electron-boilerplate
+iitm-netaccess
 ==============
-Comprehensive boilerplate application for [Electron](http://electron.atom.io).  
+Cross-platform app for automated netaccess login at IIT Madras, built with [Electron](http://electron.atom.io).  
 
 This project gives you mainly three things:
 
@@ -105,7 +105,7 @@ As installer [NSIS](http://nsis.sourceforge.net/Main_Page) is used. You have to 
 
 The MIT License (MIT)
 
-Copyright (c) 2015 Jakub Szwacz
+Copyright (c) 2015 Shahidh K Muhammed
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
