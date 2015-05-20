@@ -100,9 +100,3 @@ NetAccess.prototype.authenticate = function(duration, callback) {
 		return;
 	}
 };
-
-
-//var inst = new NetAccess('ed12b031','Il0<eIITMnetwork');
-
-
-//inst.authenticate(2, function(data){console.log(data);});
