@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="en-us">
+  <head>
+    <meta charset="UTF-8">
+    <title>IITM-Netaccess by shahidhk</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="stylesheets/normalize.css" media="screen">
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <link rel="stylesheet" type="text/css" href="stylesheets/stylesheet.css" media="screen">
+    <link rel="stylesheet" type="text/css" href="stylesheets/github-light.css" media="screen">
+  </head>
+  <body>
+    <section class="page-header">
+      <h1 class="project-name">IITM-Netaccess</h1>
+      <h2 class="project-tagline">Cross platform app for automatic netaccess login at IIT Madras</h2>
+      <a href="https://github.com/shahidhk/iitm-netaccess" class="btn">View on GitHub</a>
+      <a href="https://github.com/shahidhk/iitm-netaccess/zipball/master" class="btn">Download .zip</a>
+      <a href="https://github.com/shahidhk/iitm-netaccess/tarball/master" class="btn">Download .tar.gz</a>
+    </section>
+
+    <section class="main-content">
+      <h1>
+<a id="iitm-netaccess" class="anchor" href="#iitm-netaccess" aria-hidden="true"><span class="octicon octicon-link"></span></a>iitm-netaccess</h1>
+
+<p>Cross-platform app for automated netaccess login at IIT Madras, built with <a href="http://electron.atom.io">Electron</a>.<br>
+(Android/Windows/iOS apps coming very soon)
+Features:</p>
+
+<ol>
+<li>One time username and password input</li>
+<li>Just open the app next time to login automatically</li>
+<li>Add to start-up programs list to login everytime time you start the computer</li>
+</ol>
+
+<p>Roadmap:</p>
+
+<ol>
+<li>Automatic relogin after 24 hours</li>
+<li>Usage reporting</li>
+<li>Listing of authenticated devices</li>
+</ol>
+
+<h1>
+<a id="for-developers" class="anchor" href="#for-developers" aria-hidden="true"><span class="octicon octicon-link"></span></a>For Developers:</h1>
+
+<p>This project gives you mainly three things:</p>
+
+<ol>
+<li>Cross-platform development environment (works the same way on OSX, Windows and Linux).</li>
+<li>Basic structure for Electron app.</li>
+<li>Scripts to generate installers of your app for all three operating systems.</li>
+</ol>
+
+<p>By the way, there is a twin project to this one: <a href="https://github.com/szwacz/nw-boilerplate">nw-boilerplate</a>, which is the same thing but for NW.js.</p>
+
+<h1>
+<a id="quick-start" class="anchor" href="#quick-start" aria-hidden="true"><span class="octicon octicon-link"></span></a>Quick start</h1>
+
+<p>The only development dependency of this project is <a href="https://nodejs.org">Node.js</a>. So just make sure you have it installed.
+Then type few commands known to every Node developer...</p>
+
+<pre><code>git clone https://github.com/shahidhk/iitm-netaccess.git
+cd iitm-netaccess
+npm install
+npm start
+</code></pre>
+
+<p>... and boom! You have running desktop application on your screen.</p>
+
+<h1>
+<a id="structure-of-the-project" class="anchor" href="#structure-of-the-project" aria-hidden="true"><span class="octicon octicon-link"></span></a>Structure of the project</h1>
+
+<p>There are <strong>two</strong> <code>package.json</code> files:  </p>
+
+<h4>
+<a id="1-for-development" class="anchor" href="#1-for-development" aria-hidden="true"><span class="octicon octicon-link"></span></a>1. For development</h4>
+
+<p>Sits on path: <code>iitm-netaccess/package.json</code>. Here you declare dependencies for your development environment and build scripts. <strong>This file is not distributed with real application!</strong></p>
+
+<p>Also here you declare wersion of Electron runtime you want to use:</p>
+
+<div class="highlight highlight-json"><pre><span class="pl-s"><span class="pl-pds">"</span>devDependencies<span class="pl-pds">"</span></span>: {
+  <span class="pl-s"><span class="pl-pds">"</span>electron-prebuilt<span class="pl-pds">"</span></span>: <span class="pl-s"><span class="pl-pds">"</span>^0.24.0<span class="pl-pds">"</span></span>
+}</pre></div>
+
+<h4>
+<a id="2-for-your-application" class="anchor" href="#2-for-your-application" aria-hidden="true"><span class="octicon octicon-link"></span></a>2. For your application</h4>
+
+<p>Sits on path: <code>iitm-netaccess/app/package.json</code>. This is <strong>real</strong> manifest of your application. Declare your app dependencies here.</p>
+
+<h3>
+<a id="projects-folders" class="anchor" href="#projects-folders" aria-hidden="true"><span class="octicon octicon-link"></span></a>Project's folders</h3>
+
+<ul>
+<li>
+<code>app</code> - code of your application goes here.</li>
+<li>
+<code>config</code> - place for you to declare environment specific stuff.</li>
+<li>
+<code>build</code> - in this folder lands built, runnable application.</li>
+<li>
+<code>releases</code> - ready for distribution installers will land here.</li>
+<li>
+<code>resources</code> - resources for particular operating system.</li>
+<li>
+<code>tasks</code> - build and development environment scripts.</li>
+</ul>
+
+<h1>
+<a id="development" class="anchor" href="#development" aria-hidden="true"><span class="octicon octicon-link"></span></a>Development</h1>
+
+<h4>
+<a id="installation" class="anchor" href="#installation" aria-hidden="true"><span class="octicon octicon-link"></span></a>Installation</h4>
+
+<pre><code>npm install
+</code></pre>
+
+<p>It will also download Electron runtime, and install dependencies for second <code>package.json</code> file inside <code>app</code> folder.</p>
+
+<h4>
+<a id="starting-the-app" class="anchor" href="#starting-the-app" aria-hidden="true"><span class="octicon octicon-link"></span></a>Starting the app</h4>
+
+<pre><code>npm start
+</code></pre>
+
+<h4>
+<a id="module-loader" class="anchor" href="#module-loader" aria-hidden="true"><span class="octicon octicon-link"></span></a>Module loader</h4>
+
+<p>How about splitting your JavaScript code into modules? This project supports it by new ES6 syntax (thanks to <a href="https://github.com/esperantojs/esperanto">esperanto</a>). ES6 modules are translated into AMD (RequireJS) modules. The main advantage of this setup is that you can use ES6/RequireJS for your own modules, and at the same time have normal access to node's <code>require()</code> to obtain stuff from npm.</p>
+
+<div class="highlight highlight-javascript"><pre><span class="pl-c">// Modules you write are required through new ES6 syntax</span>
+<span class="pl-c">// (It will be translated into AMD definition).</span>
+<span class="pl-k">import</span> myOwnModule <span class="pl-k">from</span> <span class="pl-s"><span class="pl-pds">'</span>./my_own_module<span class="pl-pds">'</span></span>;
+<span class="pl-c">// Node.js (npm) modules are required the same way as always</span>
+<span class="pl-c">// (so you can still access all the goodness in npm).</span>
+<span class="pl-k">var</span> moment <span class="pl-k">=</span> <span class="pl-c1">require</span>(<span class="pl-s"><span class="pl-pds">'</span>moment<span class="pl-pds">'</span></span>);</pre></div>
+
+<h4>
+<a id="unit-tests" class="anchor" href="#unit-tests" aria-hidden="true"><span class="octicon octicon-link"></span></a>Unit tests</h4>
+
+<p>iitm-netaccess has preconfigured <a href="http://jasmine.github.io/2.0/introduction.html">jasmine</a> unit test runner. To run it go with standard:</p>
+
+<pre><code>npm test
+</code></pre>
+
+<p>You don't have to declare paths to spec files in any particular place. The runner will search through the project for all <code>*.spec.js</code> files and include them automatically.</p>
+
+<h1>
+<a id="making-a-release" class="anchor" href="#making-a-release" aria-hidden="true"><span class="octicon octicon-link"></span></a>Making a release</h1>
+
+<p><strong>Note:</strong> There are various icon and bitmap files in <code>resources</code> directory. Those are used in installers and are intended to be replaced by your own graphics.</p>
+
+<p>To make ready for distribution installer use command:</p>
+
+<pre><code>npm run release
+</code></pre>
+
+<p>It will start the packaging process for operating system you are running this command on. Ready for distribution file will be outputted to <code>releases</code> directory.</p>
+
+<p>You can create Windows installer only when running on Windows, the same is true for Linux and OSX. So to generate all three installers you need all three operating systems.</p>
+
+<h2>
+<a id="special-precautions-for-windows" class="anchor" href="#special-precautions-for-windows" aria-hidden="true"><span class="octicon octicon-link"></span></a>Special precautions for Windows</h2>
+
+<p>As installer <a href="http://nsis.sourceforge.net/Main_Page">NSIS</a> is used. You have to install it (version 3.0), and add NSIS folder to PATH in Environment Variables, so it is reachable to scripts in this project (path should look something like <code>C:/Program Files (x86)/NSIS</code>).</p>
+
+<h1>
+<a id="license" class="anchor" href="#license" aria-hidden="true"><span class="octicon octicon-link"></span></a>License</h1>
+
+<p>The MIT License (MIT)</p>
+
+<p>Copyright (c) 2015 Shahidh K Muhammed</p>
+
+<p>Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:</p>
+
+<p>The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.</p>
+
+<p>THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.</p>
+
+      <footer class="site-footer">
+        <span class="site-footer-owner"><a href="https://github.com/shahidhk/iitm-netaccess">IITM-Netaccess</a> is maintained by <a href="https://github.com/shahidhk">shahidhk</a>.</span>
+
+        <span class="site-footer-credits">This page was generated by <a href="https://pages.github.com">GitHub Pages</a> using the <a href="https://github.com/jasonlong/cayman-theme">Cayman theme</a> by <a href="https://twitter.com/jasonlong">Jason Long</a>.</span>
+      </footer>
+
+    </section>
+
+            <script type="text/javascript">
+            var gaJsHost = (("https:" == document.location.protocol) ? "https://ssl." : "http://www.");
+            document.write(unescape("%3Cscript src='" + gaJsHost + "google-analytics.com/ga.js' type='text/javascript'%3E%3C/script%3E"));
+          </script>
+          <script type="text/javascript">
+            try {
+              var pageTracker = _gat._getTracker("UA-49243395-3");
+            pageTracker._trackPageview();
+            } catch(err) {}
+          </script>
+
+  </body>
+</html>
+
