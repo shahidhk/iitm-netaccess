@@ -100,3 +100,7 @@ NetAccess.prototype.authenticate = function(duration, callback) {
 		return;
 	}
 };
+
+NetAccess.prototype.logout = function(ip, callback) {
+	
+};
