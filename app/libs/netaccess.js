@@ -1,20 +1,23 @@
 
 
-export var NetAccess = function (username, password) {
+export var NetAccess = function () {
 	var request = require('request');
 	var j = request.jar();
 
-	this.username = username;
-	this.password = password;
+	this.username = '';
+	this.password = '';
 	this.request = request.defaults({jar: j});
 	this.base_url = 'https://netaccess.iitm.ac.in/account/';
 	this.ip_regex = /<p>You can authorize the machine <span class="label label-primary">\n(\d{1,3}.\d{1,3}.\d{1,3}.\d{1,3})<\/span>/;
 	this.login_verify_str_prefix = '/account/revoke/';
 
 	this._USERNAME_PASSWORD_ERR_MSG_ = 'Invalid username/password!';
-    this._AUTH_SUCCESS_MSG_ = 'Authenticated successfully';
+    this._AUTH_SUCCESS_MSG_ = 'Authentication successfull!';
+    this._REVOKE_SUCCESS_MSG_ = 'Logout successfull!';
     this._ERROR_MSG_ = 'Network error! Please try again';
     this._AUTH_VERIFY_STR_ = 'Login failed';
+
+    this.ip = '';
 };
 
 NetAccess.prototype.authenticate = function(duration, callback) {
@@ -61,6 +64,7 @@ NetAccess.prototype.authenticate = function(duration, callback) {
 								        ip_regex.lastIndex++;
 								    }
 								    my_ip = ip_m[1];
+								    session.ip = my_ip;
 								}
 
 								session.request.get(
@@ -101,6 +105,29 @@ NetAccess.prototype.authenticate = function(duration, callback) {
 	}
 };
 
-NetAccess.prototype.logout = function(ip, callback) {
-	
+NetAccess.prototype.revoke = function(callback) {
+	var session = this;
+	try{
+		session.request.get(
+			{
+				url: session.base_url + 'revoke/' + session.ip
+			},
+			function(error,response,body){
+				if (error) { callback({status: false, message: session._ERROR_MSG_}); return; }
+				try {
+					if (body.indexOf(session.login_verify_str_prefix + session.ip) == -1 ){
+						callback({status: true, message: session._REVOKE_SUCCESS_MSG_});
+						return;
+					}
+				}
+				catch (e) {
+					callback({status: false, message: session._ERROR_MSG_});
+					return;
+				}
+			});
+	}
+	catch (e) {
+		callback({status: false, message: session._ERROR_MSG_});
+		return;
+	}
 };
