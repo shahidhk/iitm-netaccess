@@ -15,6 +15,8 @@
 // document.getElementById('greet').innerHTML = greet();
 // document.getElementById('platform-info').innerHTML = os.platform();
 // document.getElementById('env-name').innerHTML = envName;
+//
+require('electron-cookies');
 import { NetAccess } from './libs/netaccess';
 var inst = new NetAccess();
 
@@ -49,6 +51,8 @@ var auth = function () {
 			btn.classList.remove("btn-warning");
 			btn.classList.add("btn-success");
 			ipbox.innerHTML = inst.ip;
+            ga('send', 'event', 'actions', 'auth', 'ip', inst.ip);
+            ga('send', 'event', 'button', 'click', 'auth button', inst.ip);
 		} else {
 			btn.innerHTML = data.message;
 			btn.classList.remove("btn-primary");
@@ -72,6 +76,8 @@ var deauth = function () {
 			btn.classList.remove("btn-warning");
 			btn.classList.add("btn-primary");
 			ipbox.innerHTML = 'not connected';
+            ga('send', 'event', 'actions', 'deauth', 'ip', inst.ip);
+            ga('send', 'event', 'button', 'click', 'deauth button', inst.ip);
 		} else {
 			rbtn.innerHTML = data.message;
 			btn.classList.remove("btn-primary");
@@ -102,3 +108,12 @@ document.getElementById("loginform").addEventListener("submit", function(e){
 	e.preventDefault();
 	auth();
 }, false);
+
+ 
+(function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+})(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+ 
+ga('create', 'UA-49243395-4', 'auto');
+ga('send', 'pageview');

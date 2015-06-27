@@ -10,6 +10,7 @@
     "target": "development"
   },
   "dependencies": {
+    "electron-cookies": "^1.1.0",
     "fs-jetpack": "^0.6.4",
     "request": "^2.55.0"
   }
