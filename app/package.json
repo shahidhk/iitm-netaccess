@@ -3,7 +3,7 @@
   "productName": "IITM Netaccess",
   "identifier": "me.shahidh.iitm-netaccess",
   "description": "Automatic authentication through IIT Madras Netaccess.",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "author": "Shahidh K Muhammed <muhammedshahid.k@gmail.com>",
   "main": "main.js",
   "config": {
