@@ -21,7 +21,7 @@ app.on('ready', function () {
         x: mainWindowState.x,
         y: mainWindowState.y,
         width:330,
-        height: 465,
+        height: 450,
         resizable: false
     });
 
